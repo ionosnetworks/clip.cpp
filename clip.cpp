@@ -536,9 +536,11 @@ struct clip_ctx * clip_model_load(const char * fname, const int verbosity = 1) {
 
         int idx_mean = get_key_idx(ctx, KEY_IMAGE_MEAN);
         int idx_std = get_key_idx(ctx, KEY_IMAGE_STD);
+        auto mean_arr = ((float *)gguf_get_arr_data(ctx, idx_mean));
+        auto std_arr = ((float *)gguf_get_arr_data(ctx, idx_std));
         for (int i = 0; i < 3; ++i) {
-            new_clip->image_mean[i] = *((float *)gguf_get_arr_data(ctx, idx_mean));
-            new_clip->image_std[i] = *((float *)gguf_get_arr_data(ctx, idx_std));
+            new_clip->image_mean[i] = mean_arr[i];
+            new_clip->image_std[i] = std_arr[i];
         }
 
         if (verbosity >= 2) {
