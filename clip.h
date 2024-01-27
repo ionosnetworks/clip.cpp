@@ -43,6 +43,8 @@ void clip_free(struct clip_ctx * ctx);
 
 struct clip_text_hparams * clip_get_text_hparams(struct clip_ctx * ctx);
 struct clip_vision_hparams * clip_get_vision_hparams(struct clip_ctx * ctx);
+float * clip_get_image_mean(struct clip_ctx * ctx);
+float * clip_get_image_std(struct clip_ctx * ctx);
 
 // RGB uint8 image
 struct clip_image_u8 {

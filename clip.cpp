@@ -1693,3 +1693,5 @@ bool clip_model_quantize(const char * fname_inp, const char * fname_out, const i
 
 struct clip_text_hparams * clip_get_text_hparams(struct clip_ctx * ctx) { return &ctx->text_model.hparams; }
 struct clip_vision_hparams * clip_get_vision_hparams(struct clip_ctx * ctx) { return &ctx->vision_model.hparams; }
+float * clip_get_image_mean(struct clip_ctx * ctx) { return ctx->image_mean; }
+float * clip_get_image_std(struct clip_ctx * ctx) { return ctx->image_std; }
